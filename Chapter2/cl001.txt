@@ -22,7 +22,7 @@ Event = {
 		val = { $add = { /./Point/math $add = { /./Point/kor /./Point/eng } } } }
 		
 	$assign_local = { var = { $local.mean }
-		val = { $divide = { $local.sum 3.0 } } }
+		val = { $divide = { $local.sum 3.0 } } } # $local.sum is float type, so not 3 but 3.0
 		
 	$print = { data = { $local.mean } }
 	$print = { enter = { \n } }
