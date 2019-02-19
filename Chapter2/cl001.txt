@@ -1,0 +1,30 @@
+# 2-1 problem1
+
+Point = {
+	kor = 80.0 # in clautext, 80 is integer, 80.0 is float type.
+	eng = 75.0
+	math = 55.0 
+}
+
+Main = { $call = { id = problem } }
+Event = { 
+	id = problem
+	$call = { id = problem1 }
+	
+	$_getch = { }
+}
+
+Event = { 
+	id = problem1
+	
+	$local = { sum mean }
+	$assign_local = { var = { $local.sum } 
+		val = { $add = { /./Point/math $add = { /./Point/kor /./Point/eng } } } }
+		
+	$assign_local = { var = { $local.mean }
+		val = { $divide = { $local.sum 3.0 } } }
+		
+	$print = { data = { $local.mean } }
+	$print = { enter = { \n } }
+}
+
